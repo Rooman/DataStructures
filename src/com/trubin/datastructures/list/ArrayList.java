@@ -1,8 +1,21 @@
 package com.trubin.datastructures.list;
 
 public class ArrayList implements List {
-    private Object[] array = new Object[5];
+    private static final int INITIAL_CAPACITY = 5;
+
+    private Object[] array;
     private int size;
+
+    public ArrayList(){
+    //    array = new Object[INITIAL_CAPACITY];
+        this(INITIAL_CAPACITY);
+    }
+
+    public ArrayList(int capacity){
+        array = new Object[capacity];
+    }
+
+    
 
     @Override
     public void add(Object value) {
