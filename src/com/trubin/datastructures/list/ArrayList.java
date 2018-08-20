@@ -55,7 +55,7 @@ public class ArrayList implements List {
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return size == 0;
     }
 
     @Override
