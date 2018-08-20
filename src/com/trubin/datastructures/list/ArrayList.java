@@ -6,19 +6,22 @@ public class ArrayList implements List {
     private Object[] array;
     private int size;
 
-    public ArrayList(){
-    //    array = new Object[INITIAL_CAPACITY];
+    public ArrayList() {
         this(INITIAL_CAPACITY);
     }
 
-    public ArrayList(int capacity){
+    public ArrayList(int capacity) {
         array = new Object[capacity];
     }
 
-    
 
     @Override
     public void add(Object value) {
+        if (array.length == size) {
+            Object[] newArray = new Object[(int) (size * 1.5) + 1];
+            System.arraycopy(array, 0, newArray, 0, size);
+            array = newArray;
+        }
         array[size] = value;
         size++;
     }
